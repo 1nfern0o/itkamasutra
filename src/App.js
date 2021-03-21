@@ -19,10 +19,10 @@ function App(props) {
                 <div className="app__wrapper_content">
                     <Switch>
                         <Route exact path="/profile">
-                            <Profile store={props.store} />
+                            <Profile />
                         </Route>
                         <Route exact path="/dialogs">
-                            <DialogsContainer store={props.store} />
+                            <DialogsContainer />
                         </Route>
                     </Switch>
                 </div>

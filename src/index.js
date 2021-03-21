@@ -3,17 +3,17 @@ import store from "./redux/redux-store";
 import ReactDOM from "react-dom";
 import React from "react";
 import App from "./App";
-import StoreContext from "./StoreContext";
+import {Provider} from "./StoreContext";
 
-let rerenderEntireTree = (state) => {
+let rerenderEntireTree = () => {
     ReactDOM.render(
         <React.StrictMode>
-            <StoreContext.Provider value={store}>   {/*Глобальный пропс, чтобы не засорять App*/}
+            <Provider store={store}>   {/*Глобальный пропс, чтобы не засорять App*/}
             {/*<App state={state}
                      dispatch={store.dispatch.bind(store)}
                      store={store}/>Всмето этого*/}
                      <App />
-            </StoreContext.Provider>
+            </Provider>
         </React.StrictMode>,
         document.getElementById('root')
     );
