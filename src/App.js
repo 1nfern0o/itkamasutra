@@ -8,7 +8,7 @@ import "./App.css";
 import Header from "./components/Header/header.jsx";
 import Menu from "./components/Menu/menu.jsx";
 import Profile from "./components/Profile/profile.jsx";
-import Dialogs from "./components/Dialogs/dialogs.jsx";
+import DialogsContainer from "./components/Dialogs/dialogsContainer";
 
 function App(props) {
     return (
@@ -19,12 +19,10 @@ function App(props) {
                 <div className="app__wrapper_content">
                     <Switch>
                         <Route exact path="/profile">
-                            <Profile
-                                profilePage={props.state.profilePage}
-                                dispatch={props.dispatch} />
+                            <Profile store={props.store} />
                         </Route>
                         <Route exact path="/dialogs">
-                            <Dialogs store={props.store} />
+                            <DialogsContainer store={props.store} />
                         </Route>
                     </Switch>
                 </div>
