@@ -8,6 +8,7 @@ import "./App.css";
 import Header from "./components/Header/header.jsx";
 import Menu from "./components/Menu/menu.jsx";
 import Profile from "./components/Profile/profile.jsx";
+import UsersContainer from "./components/Users/usersContainer";
 import DialogsContainer from "./components/Dialogs/dialogsContainer";
 
 function App(props) {
@@ -18,11 +19,14 @@ function App(props) {
                 <Menu/>
                 <div className="app__wrapper_content">
                     <Switch>
+                        <Route exact path="/dialogs">
+                            <DialogsContainer />
+                        </Route>
                         <Route exact path="/profile">
                             <Profile />
                         </Route>
-                        <Route exact path="/dialogs">
-                            <DialogsContainer />
+                        <Route exact path="/users">
+                            <UsersContainer />
                         </Route>
                     </Switch>
                 </div>

@@ -15,6 +15,9 @@ const Menu = () => {
                 <li>
                     <NavLink to="/dialogs" className="menu__item-link">Messages</NavLink>
                 </li>
+                <li>
+                    <NavLink to="/users" className="menu__item-link">Users</NavLink>
+                </li>
             </ul>
         </nav>
     )
