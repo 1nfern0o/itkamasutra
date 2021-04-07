@@ -1,15 +1,15 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {
-    followActionCreator,
-    setCurrentPageAC,
-    setTotalUsersCountAC,
-    setUserActionCreator,
-    toggleIsFetchingAC,
-    unfollowActionCreator
+    follow,
+    setCurrentPage,
+    setTotalUsersCount,
+    setUsers,
+    toggleIsFetching,
+    unfollow
 } from "../../redux/users-reducer";
 import * as axios from "axios";
-import UsersFunc from "./usersFunc";
+import Users from "./users";
 import Preloader from "../common/Preloader/Preloader";
 
 class UsersContainer extends Component {
@@ -37,7 +37,7 @@ class UsersContainer extends Component {
         return (
             <>
                 {this.props.isFetching ? <Preloader /> : null}
-                <UsersFunc totalUsersCount={this.props.totalUsersCount}
+                <Users totalUsersCount={this.props.totalUsersCount}
                                   pageSize={this.props.pageSize}
                                   currentPage={this.props.currentPage}
                                   onPageChanged={this.onPageChanged}
@@ -60,28 +60,4 @@ let mapStateToProps = (state) => {
     }
 };
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userId) => {
-            dispatch(followActionCreator(userId));
-        },
-        unfollow: (userId) => {
-            dispatch(unfollowActionCreator(userId));
-        },
-        setUsers: (users) => {
-            dispatch(setUserActionCreator(users));
-        },
-        setCurrentPage: (pageNumber) => {
-            dispatch(setCurrentPageAC(pageNumber));
-        },
-        setTotalUsersCount: (totalCount) => {
-            dispatch(setTotalUsersCountAC(totalCount));
-        },
-        toggleIsFetching: (isFetching) => {
-            dispatch(toggleIsFetchingAC(isFetching))
-        }
-    }
-};
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+export default connect(mapStateToProps, { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching })(UsersContainer);

@@ -1,93 +1,50 @@
-import React, {Component} from "react";
+import React from "react";
 import "./users.css";
 
-class Users extends Component {
-    constructor(props) {
-        super(props);
+const Users = (props) => {
+    let pageCount = Math.ceil(props.totalUsersCount / props.pageSize);
+
+    let pages = [];
+
+    for (let i = 1; i < pageCount; i++) {
+        pages.push(i);
     }
-     getUsers = () => {
-        if (this.props.users.length === 0) {
-             this.props.setUsers([
 
-                 {
-                     id: 1,
-                     followed: true,
-                     photoUrs: "https://images.pexels.com/photos/1456951/pexels-photo-1456951.jpeg?cs=srgb&dl=pexels-hannah-nelson-1456951.jpg&fm=jpg",
-                     fullName: "Roman I.",
-                     status: "I am a boss",
-                     location: {
-                         city: "Kiev",
-                         country: "Ukraine"
-                     }
-                 },
-                 {
-                     id: 2,
-                     followed: true,
-                     photoUrs: "https://images.pexels.com/photos/1456951/pexels-photo-1456951.jpeg?cs=srgb&dl=pexels-hannah-nelson-1456951.jpg&fm=jpg",
-                     fullName: "Oksana T.",
-                     status: "I am a bosss",
-                     location: {
-                         city: "Kiev",
-                         country: "Ukraine"
-                     }
-                 },
-                 {
-                     id: 3,
-                     followed: false,
-                     photoUrs: "https://images.pexels.com/photos/1456951/pexels-photo-1456951.jpeg?cs=srgb&dl=pexels-hannah-nelson-1456951.jpg&fm=jpg",
-                     fullName: "Valera K.",
-                     status: "Noob here",
-                     location: {
-                         city: "Moscow",
-                         country: "Russia"
-                     }
-                 },
-                 {
-                     id: 4,
-                     followed: true,
-                     photoUrs: "https://images.pexels.com/photos/1456951/pexels-photo-1456951.jpeg?cs=srgb&dl=pexels-hannah-nelson-1456951.jpg&fm=jpg",
-                     fullName: "Oksana T.",
-                     status: "I am a bosss",
-                     location: {
-                         city: "Kiev",
-                         country: "Ukraine"
-                     }
-                 },
-             ])
-         }
-     }
-
-    render() {
-        return (
+    return (
+        <div>
             <div>
-                <button onClick={this.getUsers}>Get users</button>
-                {this.props.users.map(user => (
-                    <div className="user" key={user.id}>
+                {pages.map(p => (
+                    <span className={`user__page-number ${props.currentPage === p && "user__page-select"}`}
+                          onClick={(e) => { props.onPageChanged(p) }}>{p}</span>
+                ))}
+            </div>
+
+            {props.users.map(user => (
+                <div className="user" key={user.id}>
                     <span>
                         <div>
-                            <img className="user__avatar" src={user.photoUrs} alt=""/>
+                            <img className="user__avatar" src={`${user.photos.small != null ? user.photos.small : "https://images.pexels.com/photos/1312023/pexels-photo-1312023.jpeg?cs=srgb&dl=pexels-michael-morse-1312023.jpg&fm=jpg"}`} alt=""/>
                         </div>
                         <div>
                             { user.followed
-                                ? <button onClick={ () => {this.props.unfollow(user.id)}}>UnFollow</button>
-                                :  <button onClick={ () => {this.props.follow(user.id)}}>Follow</button>}
+                                ? <button onClick={ () => {props.unfollow(user.id)}}>UnFollow</button>
+                                :  <button onClick={ () => {props.follow(user.id)}}>Follow</button>}
                         </div>
                     </span>
-                        <span>
+                    <span>
                         <span>
                             <div>{user.fullName}</div>
                             <div>{user.status}</div>
                         </span>
                         <span>
-                            <div>{user.location.country}</div>
-                            <div>{user.location.city}</div>
+                            <div>{`user.location.country`}</div>
+                            <div>{`user.location.city`}</div>
                         </span>
                     </span>
-                    </div>
-                ))}
-            </div>
-        );
-    }
+                </div>
+            ))}
+        </div>
+    );
 }
 
 export default Users;
