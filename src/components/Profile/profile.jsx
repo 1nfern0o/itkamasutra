@@ -3,10 +3,10 @@ import "./profile.css"
 import ProfileInfo from "./Sections/ProfileInfo/ProfileInfo.jsx";
 import PostsContainer from "./Sections/Posts/postsContainer";
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div className="content">
-            <ProfileInfo />
+            <ProfileInfo profile={props.profile} />
             <PostsContainer />
         </div>
     )
