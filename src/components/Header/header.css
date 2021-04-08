@@ -1,11 +1,28 @@
 .header {
     grid-area: header;
     background-color: greenyellow;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .logo {
     width: 175px;
     height: 60px;
+}
+
+.login-block {
+    padding: 20px;
+}
+
+.login-block__link {
+    color: blue;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.login-block__link:hover {
+    text-decoration: underline;
 }
 
 

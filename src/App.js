@@ -5,17 +5,17 @@ import {
     Route
 } from "react-router-dom";
 import "./App.css";
-import Header from "./components/Header/header.jsx";
 import Menu from "./components/Menu/menu.jsx";
 import UsersContainer from "./components/Users/usersContainer";
 import DialogsContainer from "./components/Dialogs/dialogsContainer";
 import ProfileContainer from "./components/Profile/profileContainer";
+import HeaderContainer from "./components/Header/headerContainer";
 
 const App = () => {
     return (
         <Router>
             <div className="app__wrapper">
-                <Header/>
+                <HeaderContainer />
                 <Menu/>
                 <div className="app__wrapper_content">
                     <Switch>
