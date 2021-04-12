@@ -33,32 +33,32 @@ const Users = (props) => {
                         </div>
                         <div>
                             { user.followed
-                                ? <button onClick={ () => {
-
+                                ? <button disabled={props.followingInProgress.some(id => id === user.id)} onClick={ () => {
+                                    props.toggleFollowingProgress(true, user.id);
                                     axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {
                                         withCredentials: true,
                                         headers: {
                                             "API-KEY": "d0ce4cd8-d0d2-4152-99ad-f6e1407cb23f"
                                         }
-                                    })
-                                        .then( response => {
+                                    }).then(response => {
                                             if (response.data.resultCode === 0) {
                                                 props.unfollow(user.id);
                                             }
+                                            props.toggleFollowingProgress(false, user.id);
                                         });
                                 }}>UnFollow</button>
-                                :  <button onClick={ () => {
-
+                                :  <button disabled={props.followingInProgress.some(id => id === user.id)} onClick={ () => {
+                                    props.toggleFollowingProgress(true, user.id);
                                     axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, {
                                         withCredentials: true,
                                         headers: {
                                             "API-KEY": "d0ce4cd8-d0d2-4152-99ad-f6e1407cb23f"
                                         }
-                                    })
-                                        .then( response => {
+                                    }).then(response => {
                                             if (response.data.resultCode === 0) {
                                                 props.follow(user.id);
                                             }
+                                            props.toggleFollowingProgress(false, user.id);
                                         });
                                 }}>Follow</button>}
                         </div>
@@ -69,6 +69,7 @@ const Users = (props) => {
                             <div>{user.status}</div>
                         </span>
                         <span>
+                            <div>{user.id}</div>
                             <div>{`user.location.country`}</div>
                             <div>{`user.location.city`}</div>
                         </span>
