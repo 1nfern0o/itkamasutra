@@ -10,6 +10,7 @@ import UsersContainer from "./components/Users/usersContainer";
 import DialogsContainer from "./components/Dialogs/dialogsContainer";
 import ProfileContainer from "./components/Profile/profileContainer";
 import HeaderContainer from "./components/Header/headerContainer";
+import Login from "./components/Login/Login";
 
 const App = () => {
     return (
@@ -27,6 +28,9 @@ const App = () => {
                         </Route>
                         <Route path="/users">
                             <UsersContainer />
+                        </Route>
+                        <Route path="/login">
+                            <Login />
                         </Route>
                     </Switch>
                 </div>
