@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/itkamasutra/static/css/main.4ff5ad0c.chunk.css",
-    "main.js": "/itkamasutra/static/js/main.1797ba2d.chunk.js",
-    "main.js.map": "/itkamasutra/static/js/main.1797ba2d.chunk.js.map",
+    "main.js": "/itkamasutra/static/js/main.17032f5b.chunk.js",
+    "main.js.map": "/itkamasutra/static/js/main.17032f5b.chunk.js.map",
     "runtime-main.js": "/itkamasutra/static/js/runtime-main.e49ae2b7.js",
     "runtime-main.js.map": "/itkamasutra/static/js/runtime-main.e49ae2b7.js.map",
     "static/js/2.1d6cc592.chunk.js": "/itkamasutra/static/js/2.1d6cc592.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.e49ae2b7.js",
     "static/js/2.1d6cc592.chunk.js",
     "static/css/main.4ff5ad0c.chunk.css",
-    "static/js/main.1797ba2d.chunk.js"
+    "static/js/main.17032f5b.chunk.js"
   ]
 }
