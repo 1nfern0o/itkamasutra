@@ -26,7 +26,7 @@ const ProfileInfo = (props) => {
                         <li>{props.profile.contacts.github}</li>
                     </ul>
                 </div>
-                <ProfileStatus status="Hello"/>
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
             </div>
         </div>
     )
