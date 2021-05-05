@@ -25,6 +25,9 @@ const LoginForm = (props) => {
                    <span>remember me</span>
                </label>
            </div>
+           { props.error && <div className="form-summary-error">
+               {props.error}
+           </div>}
            <div>
                <button>Login</button>
            </div>
