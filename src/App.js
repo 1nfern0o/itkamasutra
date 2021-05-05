@@ -1,8 +1,7 @@
-import React from "react";
+import React, {Component} from "react";
 import {
-    BrowserRouter as Router,
     Switch,
-    Route
+    Route, withRouter
 } from "react-router-dom";
 import "./App.css";
 import Menu from "./components/Menu/menu.jsx";
@@ -11,10 +10,22 @@ import DialogsContainer from "./components/Dialogs/dialogsContainer";
 import ProfileContainer from "./components/Profile/profileContainer";
 import HeaderContainer from "./components/Header/headerContainer";
 import Login from "./components/Login/Login";
+import {compose} from "redux";
+import {connect} from "react-redux";
+import {initializeApp} from "./redux/app-reducer";
+import Preloader from "./components/common/Preloader/Preloader";
 
-const App = () => {
-    return (
-        <Router>
+class App extends Component {
+    componentDidMount() {
+        this.props.initializeApp();
+    }
+
+    render() {
+
+        if (!this.props.initialized) {
+            return <Preloader/>
+        }
+        return (
             <div className="app__wrapper">
                 <HeaderContainer />
                 <Menu/>
@@ -35,8 +46,14 @@ const App = () => {
                     </Switch>
                 </div>
             </div>
-        </Router>
-    );
+        );
+    }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+    initialized: state.app.initialized
+});
+
+export default compose(
+    withRouter,
+    connect(mapStateToProps, {initializeApp}))(App);
