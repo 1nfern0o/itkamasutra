@@ -6,10 +6,6 @@ import App from "./App";
 import {Provider} from "react-redux";
 import {BrowserRouter as Router}from "react-router-dom";
 
-setInterval(() => {
-    store.dispatch({type:"FAKE"})
-}, 1000)
-
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
@@ -20,8 +16,6 @@ ReactDOM.render(
     </React.StrictMode>,
     document.getElementById('root')
 );
-
-
 
 
 // If you want to start measuring performance in your app, pass a function
