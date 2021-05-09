@@ -2,6 +2,7 @@ import React from "react";
 import "./ProfileInfo.css";
 import Preloader from "../../../common/Preloader/Preloader";
 import ProfileStatus from "../ProfileStatus/ProfileStatus";
+import ProfileStatusFunc from "../ProfileStatus/ProfileStatus";
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
@@ -26,7 +27,7 @@ const ProfileInfo = (props) => {
                         <li>{props.profile.contacts.github}</li>
                     </ul>
                 </div>
-                <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+                <ProfileStatusFunc status={props.status} updateStatus={props.updateStatus}/>
             </div>
         </div>
     )

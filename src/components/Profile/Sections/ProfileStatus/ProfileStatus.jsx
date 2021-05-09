@@ -1,7 +1,40 @@
-import React, {Component} from "react";
+import React, {Component, useState} from "react";
 import "./ProfileStatus.css";
 
-class ProfileStatus extends Component {
+const ProfileStatusFunc = (props) => {
+    const [editMode, setEditMode] = useState(false);
+    const [status, setStatus] = useState(props.status);
+
+    const activeEditMode = () => {
+        setEditMode(true);
+    };
+    //
+    const deactiveEditMode = () => {
+        setEditMode(false);
+        props.updateStatus(status);
+    }
+
+    const onStatusChange = (e) => {
+        setStatus(e.currentTarget.value);
+    }
+
+    return (
+        <div className="profile-status">
+            {!editMode &&
+            <div>
+                <span onDoubleClick={activeEditMode}>{props.status || "No status"}</span>
+            </div>
+            }
+            {editMode &&
+            <div>
+                <input onChange={onStatusChange} autoFocus={true} onBlur={deactiveEditMode} type="text" value={status}/>
+            </div>
+            }
+        </div>
+    )
+}
+
+class ProfileStatusClass extends Component {
 
     state = {
         editMode: false,
@@ -53,4 +86,4 @@ class ProfileStatus extends Component {
     }
 }
 
-export default ProfileStatus;
+export default ProfileStatusFunc;
