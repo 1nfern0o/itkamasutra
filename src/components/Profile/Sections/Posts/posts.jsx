@@ -4,7 +4,7 @@ import Post from "../Post/post.jsx";
 import AddPostForm from "./Sections/AddNewPostForm";
 
 const Posts = memo(props => {
-    let postElements = props.postsData.map(post => <Post message={post.message} key={post.id} likes={post.likes} />);
+    let postElements = [...props.postsData].reverse().map(post => <Post message={post.message} key={post.id} likes={post.likes} />);
 
     let addNewMessage = (values) => {
         props.addPosts(values.newPostText);
