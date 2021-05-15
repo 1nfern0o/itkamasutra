@@ -19,7 +19,6 @@ const ProfileStatus = (props) => {
     };
 
     useEffect(() => {
-        debugger
         setStatus(props.status)
     }, [props.status]);
 

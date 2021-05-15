@@ -1,9 +1,9 @@
-import React from "react";
+import React, {memo} from "react";
 import "./posts.css";
 import Post from "../Post/post.jsx";
 import AddPostForm from "./Sections/AddNewPostForm";
 
-const Posts = (props) => {
+const Posts = memo(props => {
     let postElements = props.postsData.map(post => <Post message={post.message} key={post.id} likes={post.likes} />);
 
     let addNewMessage = (values) => {
@@ -20,6 +20,6 @@ const Posts = (props) => {
         </div>
 
     );
-};
+});
 
 export default Posts;
