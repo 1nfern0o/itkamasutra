@@ -1,4 +1,12 @@
-.user__page-number {}
+.paginator {
+    margin: 10px;
+}
+
+.user__page-number {
+    padding: 2px;
+    border: 1px solid grey;
+}
 .user__page-select {
     font-weight: bold;
+    border-color: #000;
 }
