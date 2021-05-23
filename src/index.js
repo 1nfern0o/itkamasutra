@@ -1,18 +1,12 @@
 import reportWebVitals from './reportWebVitals';
 import ReactDOM from "react-dom";
 import React from "react";
-import App from "./App";
-import store from "./redux/redux-store";
-import {BrowserRouter as Router} from "react-router-dom";
-import {Provider} from "react-redux";
+import SamuraiJSApp from "./App";
+
 
 ReactDOM.render(
     <React.StrictMode>
-        <Router>
-            <Provider store={store}>
-                <App/>
-            </Provider>
-        </Router>
+        <SamuraiJSApp/>
     </React.StrictMode>,
     document.getElementById('root')
 );
