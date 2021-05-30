@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, lazy} from "react";
 import {
     Switch,
     Route, withRouter, BrowserRouter as Router
@@ -6,8 +6,6 @@ import {
 import "./App.css";
 import Menu from "./components/Menu/menu.jsx";
 import UsersContainer from "./components/Users/usersContainer";
-import DialogsContainer from "./components/Dialogs/dialogsContainer";
-import ProfileContainer from "./components/Profile/profileContainer";
 import HeaderContainer from "./components/Header/headerContainer";
 import Login from "./components/Login/Login";
 import {compose} from "redux";
@@ -15,6 +13,10 @@ import {connect, Provider} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import store from "./redux/redux-store";
+import {withSuspense} from "./hoc/withSuspence";
+
+const DialogsContainer = lazy(() => import('./components/Dialogs/dialogsContainer'));
+const ProfileContainer = lazy(() => import('./components/Profile/profileContainer'));
 
 class App extends Component {
     componentDidMount() {
@@ -33,10 +35,10 @@ class App extends Component {
                 <div className="app__wrapper_content">
                     <Switch>
                         <Route path="/dialogs">
-                            <DialogsContainer />
+                            {withSuspense(DialogsContainer)}
                         </Route>
                         <Route path="/profile/:userId?">
-                            <ProfileContainer />
+                            {withSuspense(ProfileContainer)}
                         </Route>
                         <Route path="/users">
                             <UsersContainer />
