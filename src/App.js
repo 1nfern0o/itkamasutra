@@ -1,7 +1,7 @@
 import React, {Component, lazy} from "react";
 import {
     Switch,
-    Route, withRouter, BrowserRouter as Router
+    Route, withRouter, HashRouter
 } from "react-router-dom";
 import "./App.css";
 import Menu from "./components/Menu/menu.jsx";
@@ -62,11 +62,11 @@ const AppContainer =  compose(
     connect(mapStateToProps, {initializeApp}))(App);;
 
 const SamuraiJSApp = (props) => {
-    return <Router>
+    return <HashRouter>
         <Provider store={store}>
             <AppContainer/>
         </Provider>
-    </Router>
+    </HashRouter>
 };
 
 export default SamuraiJSApp;
