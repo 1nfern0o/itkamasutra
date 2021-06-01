@@ -1,3 +1,7 @@
 .description-block {
     padding: 10px;
 }
+
+.description-block__avatar {
+    max-width: 200px;
+}
