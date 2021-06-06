@@ -5,3 +5,12 @@
 .description-block__avatar {
     max-width: 200px;
 }
+
+.contact-social {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.contact-social__item {
+    list-style: none;
+}
