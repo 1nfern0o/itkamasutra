@@ -1,8 +1,8 @@
 import React, {Component, lazy} from "react";
 import {
     Switch,
-    Route, withRouter, HashRouter
-} from "react-router-dom";
+    Route, withRouter, BrowserRouter, Redirect
+} from 'react-router-dom';
 import "./App.css";
 import Menu from "./components/Menu/menu.jsx";
 import UsersContainer from "./components/Users/usersContainer";
@@ -19,8 +19,18 @@ const DialogsContainer = lazy(() => import('./components/Dialogs/dialogsContaine
 const ProfileContainer = lazy(() => import('./components/Profile/profileContainer'));
 
 class App extends Component {
+    catchAllUnhandledErrors = (reason, promise) => {
+        alert("Some error occured ");
+        console.log("reason", reason);
+        console.log("promise", promise);
+    }
     componentDidMount() {
         this.props.initializeApp();
+        window.addEventListener('unhandledrejection', this.catchAllUnhandledErrors);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('unhandledrejection', this.catchAllUnhandledErrors);
     }
 
     render() {
@@ -34,6 +44,9 @@ class App extends Component {
                 <Menu/>
                 <div className="app__wrapper_content">
                     <Switch>
+                        <Route exact path="/">
+                            {() => <Redirect to="/profile" />}
+                        </Route>
                         <Route path="/dialogs">
                             {withSuspense(DialogsContainer)}
                         </Route>
@@ -45,6 +58,9 @@ class App extends Component {
                         </Route>
                         <Route path="/login">
                             <Login />
+                        </Route>
+                        <Route path="*">
+                            <div>404 NOT FOUND</div>
                         </Route>
                     </Switch>
                 </div>
@@ -62,11 +78,11 @@ const AppContainer =  compose(
     connect(mapStateToProps, {initializeApp}))(App);;
 
 const SamuraiJSApp = (props) => {
-    return <HashRouter>
+    return <BrowserRouter>
         <Provider store={store}>
             <AppContainer/>
         </Provider>
-    </HashRouter>
+    </BrowserRouter>
 };
 
 export default SamuraiJSApp;

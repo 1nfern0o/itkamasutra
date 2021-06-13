@@ -6,9 +6,6 @@ const Menu = () => {
     return (
         <nav className="menu">
             <ul className="menu__list">
-                <li className="menu__item">
-                    <NavLink to="/home" className="menu__item-link">Home</NavLink>
-                </li>
                 <li>
                     <NavLink to="/profile" className="menu__item-link">Profile</NavLink>
                 </li>
