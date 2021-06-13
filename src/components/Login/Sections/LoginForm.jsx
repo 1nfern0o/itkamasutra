@@ -3,12 +3,15 @@ import {reduxForm} from "redux-form";
 import {createField, Input} from "../../common/FormsControls/FormsControls";
 import {required} from "../../../utils/Validators/validators";
 
-const LoginForm = ({handleSubmit, error}) => {
+const LoginForm = ({handleSubmit, error, captchaUrl}) => {
+    //debugger
    return (
        <form onSubmit={handleSubmit}>
            {createField("Email", "email", [required], Input)}
            {createField("Password", "password", [required], Input, {type: "password"})}
            {createField(null, "rememberMe", [], Input, {type: "checkbox"}, "remember me")}
+           {captchaUrl && <img src={captchaUrl} alt={captchaUrl} /> }
+           {captchaUrl && createField("Symbols from image", "captcha", [required], Input, {}) }
            { error && <div className="form-summary-error">
                {error}
            </div>}
