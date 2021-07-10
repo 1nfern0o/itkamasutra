@@ -54,7 +54,7 @@ class App extends Component {
                             {withSuspense(ProfileContainer)}
                         </Route>
                         <Route path="/users">
-                            <UsersContainer />
+                            <UsersContainer pageTitle="Page Title" />
                         </Route>
                         <Route path="/login">
                             <Login />
