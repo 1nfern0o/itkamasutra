@@ -138,9 +138,9 @@ export const getStatus = (userId: number) => async (dispatch: any) => {
     dispatch(setStatus(response.data));
 };
 
-export const updateStatus = (status: string) => async (dispatch: any) => {
+export const updateStatus = (status: any) => async (dispatch: any) => {
     try {
-        const response = await  profileAPI.getProfile(status);
+        const response = await profileAPI.getProfile(status);
         if (response.data.resutCode === 0) dispatch(setStatus(status));
     } catch(error) {
         console.log(error);

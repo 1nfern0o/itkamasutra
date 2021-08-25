@@ -55,7 +55,7 @@ class UsersContainer extends Component<PropsType> {
         return (
             <>
                 <h2>{this.props.pageTitle}</h2>
-                {!this.props.isFetching ? <Preloader /> : null}
+                {this.props.isFetching ? <Preloader /> : null}
                 <Users totalUsersCount={this.props.totalUsersCount}
                                   pageSize={this.props.pageSize}
                                   currentPage={this.props.currentPage}
