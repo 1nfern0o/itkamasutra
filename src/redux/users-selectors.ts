@@ -28,10 +28,3 @@ export const getIsFetching = (state: AppStateType) => {
 export const getFollowingInProgress = (state: AppStateType) => {
     return state.usersPage.followingInProgress;
 };
-
-export const countSomethingDifficult = (state: AppStateType) => {
-    debugger;
-    //for...math... big array
-    let count = 12;
-    return count;
-};

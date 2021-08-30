@@ -1,8 +1,17 @@
-import React from "react"
+import React, {FC} from "react"
 import "./header.css";
 import {NavLink} from "react-router-dom";
 
-const Header = (props) => {
+export type MapPropsType = {
+    isAuth: boolean,
+    login: string | null,
+};
+
+export type DispatchPropsType = {
+    logout: () => void,
+};
+
+const Header: FC<MapPropsType & DispatchPropsType> = (props) => {
     return (
         <header className="header">
             <img className="logo" src="https://image.neoseo.com.ua/image/catalog/foto_statti/topsovetovposozdanijubesplatnogologotipadljasajta/logo-design.png" alt="Logo header"/>

@@ -23,11 +23,13 @@ export type ProfileType = {
     lookingForAJobDescription: string,
     fullName: string,
     contacts: ContactsType,
-    photos :PhotosType
+    photos :PhotosType,
+    aboutMe: string,
 }
 export type UserType = {
     id: number,
     name: string,
     status: string,
-    photos: PhotosType
+    photos: PhotosType,
+    followed: boolean,
 }

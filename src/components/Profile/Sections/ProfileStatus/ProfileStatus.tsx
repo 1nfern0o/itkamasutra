@@ -3,7 +3,7 @@ import "./ProfileStatus.css";
 
 type PropsType = {
     status: string,
-    updateStatus: (newStatus: string) => void,
+    updateStatus: (status: string) => void,
 };
 
 const ProfileStatus: FC<PropsType> = (props) => {

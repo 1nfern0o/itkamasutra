@@ -3,13 +3,19 @@ import "./Paginator.css";
 
 type PropsType = {
     totalItemsCount: number,
-    currentPage: number,
-    onPageChanged: (pageNumber: number) => void,
+    currentPage?: number,
+    onPageChanged?: (pageNumber: number) => void,
     pageSize: number,
     portionSize?: number
 }
 
-const Paginator: FC<PropsType> = ({ totalItemsCount, currentPage, onPageChanged, pageSize, portionSize = 10 }) => {
+const Paginator: FC<PropsType> = ({
+          totalItemsCount,
+          currentPage = 1,
+          onPageChanged = x => x,
+          pageSize,
+          portionSize = 10
+}) => {
 
     let pagesCount = Math.ceil(totalItemsCount / pageSize);
 

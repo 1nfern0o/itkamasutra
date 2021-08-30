@@ -1,8 +1,8 @@
-import React from "react";
+import React, {FC} from "react";
 import "./menu.css";
 import {NavLink} from "react-router-dom";
 
-const Menu = () => {
+const Menu: FC = () => {
     return (
         <nav className="menu">
             <ul className="menu__list">

@@ -23,7 +23,6 @@ let initialState = {
     ] as Array<PostType>,
     profile: null as ProfileType | null,
     status: '',
-    newPostText: ''
 };
 
 const profileReducer = (state = initialState, action: ActionsType): InitialStateType => {
@@ -37,7 +36,6 @@ const profileReducer = (state = initialState, action: ActionsType): InitialState
             return {
                 ...state,
                 postsData: [...state.postsData, newPost],
-                newPostText: ""
             }
         }
 
