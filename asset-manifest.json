@@ -1,31 +1,31 @@
 {
   "files": {
     "main.css": "/itkamasutra/static/css/main.5b7e22d3.chunk.css",
-    "main.js": "/itkamasutra/static/js/main.6f55eaeb.chunk.js",
-    "main.js.map": "/itkamasutra/static/js/main.6f55eaeb.chunk.js.map",
-    "runtime-main.js": "/itkamasutra/static/js/runtime-main.81d35045.js",
-    "runtime-main.js.map": "/itkamasutra/static/js/runtime-main.81d35045.js.map",
-    "static/js/2.5959f0f0.chunk.js": "/itkamasutra/static/js/2.5959f0f0.chunk.js",
-    "static/js/2.5959f0f0.chunk.js.map": "/itkamasutra/static/js/2.5959f0f0.chunk.js.map",
+    "main.js": "/itkamasutra/static/js/main.a7702782.chunk.js",
+    "main.js.map": "/itkamasutra/static/js/main.a7702782.chunk.js.map",
+    "runtime-main.js": "/itkamasutra/static/js/runtime-main.85a3a949.js",
+    "runtime-main.js.map": "/itkamasutra/static/js/runtime-main.85a3a949.js.map",
+    "static/js/2.4e488c31.chunk.js": "/itkamasutra/static/js/2.4e488c31.chunk.js",
+    "static/js/2.4e488c31.chunk.js.map": "/itkamasutra/static/js/2.4e488c31.chunk.js.map",
     "static/css/3.6d5d3e3d.chunk.css": "/itkamasutra/static/css/3.6d5d3e3d.chunk.css",
-    "static/js/3.2c9569ff.chunk.js": "/itkamasutra/static/js/3.2c9569ff.chunk.js",
-    "static/js/3.2c9569ff.chunk.js.map": "/itkamasutra/static/js/3.2c9569ff.chunk.js.map",
+    "static/js/3.80517494.chunk.js": "/itkamasutra/static/js/3.80517494.chunk.js",
+    "static/js/3.80517494.chunk.js.map": "/itkamasutra/static/js/3.80517494.chunk.js.map",
     "static/css/4.21bee8a4.chunk.css": "/itkamasutra/static/css/4.21bee8a4.chunk.css",
-    "static/js/4.9f3816bf.chunk.js": "/itkamasutra/static/js/4.9f3816bf.chunk.js",
-    "static/js/4.9f3816bf.chunk.js.map": "/itkamasutra/static/js/4.9f3816bf.chunk.js.map",
+    "static/js/4.c165d796.chunk.js": "/itkamasutra/static/js/4.c165d796.chunk.js",
+    "static/js/4.c165d796.chunk.js.map": "/itkamasutra/static/js/4.c165d796.chunk.js.map",
     "static/js/5.6c533d04.chunk.js": "/itkamasutra/static/js/5.6c533d04.chunk.js",
     "static/js/5.6c533d04.chunk.js.map": "/itkamasutra/static/js/5.6c533d04.chunk.js.map",
     "index.html": "/itkamasutra/index.html",
     "static/css/3.6d5d3e3d.chunk.css.map": "/itkamasutra/static/css/3.6d5d3e3d.chunk.css.map",
     "static/css/4.21bee8a4.chunk.css.map": "/itkamasutra/static/css/4.21bee8a4.chunk.css.map",
     "static/css/main.5b7e22d3.chunk.css.map": "/itkamasutra/static/css/main.5b7e22d3.chunk.css.map",
-    "static/js/2.5959f0f0.chunk.js.LICENSE.txt": "/itkamasutra/static/js/2.5959f0f0.chunk.js.LICENSE.txt",
-    "static/media/preloader.d7e7d5d0.svg": "/itkamasutra/static/media/preloader.d7e7d5d0.svg"
+    "static/js/2.4e488c31.chunk.js.LICENSE.txt": "/itkamasutra/static/js/2.4e488c31.chunk.js.LICENSE.txt",
+    "static/media/preloader.3ad5b43f.svg": "/itkamasutra/static/media/preloader.3ad5b43f.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.81d35045.js",
-    "static/js/2.5959f0f0.chunk.js",
+    "static/js/runtime-main.85a3a949.js",
+    "static/js/2.4e488c31.chunk.js",
     "static/css/main.5b7e22d3.chunk.css",
-    "static/js/main.6f55eaeb.chunk.js"
+    "static/js/main.a7702782.chunk.js"
   ]
 }
