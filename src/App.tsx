@@ -5,15 +5,15 @@ import {
 } from 'react-router-dom';
 import "./App.css";
 import Menu from "./components/Menu/menu";
-import UsersContainer from "./components/Users/usersContainer";
+import UsersPage from "./components/Users/UsersPage";
 import HeaderContainer from "./components/Header/headerContainer";
-import Login from "./components/Login/Login";
 import {compose} from "redux";
 import {connect, Provider} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import store, {AppStateType} from "./redux/redux-store";
 import {withSuspense} from "./hoc/withSuspence";
+import { LoginPage } from "./components/Login/LoginPage";
 
 const DialogsContainer = lazy(() => import('./components/Dialogs/dialogsContainer'));
 const ProfileContainer = lazy(() => import('./components/Profile/profileContainer'));
@@ -60,10 +60,10 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                             <SuspendedProfile />
                         </Route>
                         <Route path="/users">
-                            <UsersContainer pageTitle="Page Title" />
+                            <UsersPage pageTitle="Page Title" />
                         </Route>
                         <Route path="/login">
-                            <Login />
+                            <LoginPage />
                         </Route>
                         <Route path="*">
                             <div>404 NOT FOUND</div>
