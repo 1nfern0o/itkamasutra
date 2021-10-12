@@ -1,4 +1,4 @@
-import React, {FC, useEffect} from "react";
+import React, { FC, useEffect } from "react";
 import "./users.css";
 import Paginator from "../common/Paginator/Paginator";
 import User from "./User";
@@ -13,7 +13,10 @@ import {
     getUsers,
     getUsersFilter
 } from "../../redux/users-selectors";
+import { useHistory } from "react-router-dom";
+import * as queryString from 'querystring';
 
+type QueryParamsType = {term?: string; page?: string; friend?: string;}
 
 export const Users: FC = () => {
 
@@ -25,6 +28,7 @@ export const Users: FC = () => {
     const followingInProgress = useSelector(getFollowingInProgress);
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const onPageChanged = (pageNumber: number) => {
         dispatch(requestUsers(pageNumber, pageSize, filter));
@@ -41,9 +45,42 @@ export const Users: FC = () => {
         dispatch(unfollow(userId));
     };
 
+
     useEffect(() => {
-        dispatch(requestUsers(currentPage, pageSize, filter));
-    }, [])
+        const parsed = queryString.parse(history.location.search.substr(1)) as QueryParamsType;
+
+        let actualPage = currentPage;
+        let actualFilter = filter;
+
+        if(!!parsed.page) actualPage = Number(parsed.page);
+        if(!!parsed.page) actualFilter = {...actualFilter, term: parsed.term as string};
+
+        switch (parsed.friend) {
+            case 'null':
+                actualFilter = {...actualFilter, friend: null};
+                break;
+            case 'true':
+                actualFilter = {...actualFilter, friend: true};
+                break;
+            case 'false':
+                actualFilter = {...actualFilter, friend: false};
+                break;
+        }
+
+        dispatch(requestUsers(actualPage, pageSize, actualFilter));
+    }, []);
+
+    useEffect(() => {
+        const query: QueryParamsType = {};
+        if(!!filter.term) query.term = filter.term;
+        if(filter.friend !== null) query.friend = String(filter.friend);
+        if(currentPage !== 1) query.page = String(currentPage);
+
+        history.push({
+            pathname: '/users',
+            search: queryString.stringify(query)
+        })
+    }, [filter, currentPage]);
 
     return (
         <div>
