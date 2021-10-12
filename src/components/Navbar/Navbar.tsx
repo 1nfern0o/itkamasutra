@@ -2,7 +2,7 @@ import React, {FC} from "react";
 import "./menu.css";
 import {NavLink} from "react-router-dom";
 
-const Menu: FC = () => {
+const Navbar: FC = () => {
     return (
         <nav className="menu">
             <ul className="menu__list">
@@ -20,4 +20,4 @@ const Menu: FC = () => {
     )
 }
 
-export default Menu;
+export default Navbar;
