@@ -19,6 +19,7 @@ const {Content, Footer, Sider} = Layout;
 
 const DialogsContainer = lazy(() => import('./components/Dialogs/dialogsContainer'));
 const ProfileContainer = lazy(() => import('./components/Profile/profileContainer'));
+const ChatPage = lazy(() => import('./pages/Chat/ChatPage'));
 
 type MapPropsType = ReturnType<typeof mapStateToProps>;
 type DispatchPropsType = {
@@ -27,6 +28,7 @@ type DispatchPropsType = {
 
 const SuspendedDialogs = withSuspense(DialogsContainer);
 const SuspendedProfile = withSuspense(ProfileContainer);
+const SuspendedChatPage = withSuspense(ChatPage);
 
 class App extends Component<MapPropsType & DispatchPropsType> {
     catchAllUnhandledErrors = (e: PromiseRejectionEvent) => {
@@ -77,6 +79,11 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                                         <Link to="/developers">Developers</Link>
                                     </Menu.Item>
                                 </SubMenu>
+                                <SubMenu key="sub3" icon={<UserOutlined />} title="Chat">
+                                    <Menu.Item key='4'>
+                                        <Link to="/chat">Chat</Link>
+                                    </Menu.Item>
+                                </SubMenu>
                             </Menu>
                         </Sider>
                         <Content style={{ padding: '0 24px', minHeight: 280 }}>
@@ -95,6 +102,9 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                                 </Route>
                                 <Route path="/login">
                                     <LoginPage/>
+                                </Route>
+                                <Route path="/chat">
+                                    <SuspendedChatPage />
                                 </Route>
                                 <Route path="*">
                                     <div>404 NOT FOUND</div>
